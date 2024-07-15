@@ -45,4 +45,14 @@ public class TipController {
 		credit = credit + tip;
 		tip = 0;	
 	}
+
+	public void getDividend(double ratio) {
+		if (ratio < 0) {
+			ratio = 1;
+		}
+		credit = credit + (int)(tip * ratio);
+		// 計算結果が小数点以下の値が発生した場合の考慮が必要
+		returnTip();
+	}
+
 }

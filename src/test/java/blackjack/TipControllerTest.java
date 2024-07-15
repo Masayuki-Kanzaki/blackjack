@@ -43,4 +43,14 @@ public class TipControllerTest {
         Assert.assertEquals(100,tc.getCredit());
         Assert.assertEquals(0,tc.getTip());
     }
+    @Test
+    public void get_Dividend() {
+        TipController tc = new TipController();
+        tc.bet(50);
+        Assert.assertEquals(50,tc.getCredit());
+        Assert.assertEquals(50,tc.getTip());
+        tc.getDividend(1.5);
+        Assert.assertEquals(175,tc.getCredit());
+        Assert.assertEquals(0,tc.getTip());
+    }
 }

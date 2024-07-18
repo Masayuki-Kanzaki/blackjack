@@ -8,7 +8,12 @@ public class Card {
         this.type = type;
         this.mark = mark;
     }
+
     public boolean isAce() {
         return type.equals(CardType.ace);
+    }
+
+    public int getCardTypePoint() {
+        return type.getPoint();
     }
 }

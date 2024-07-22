@@ -21,4 +21,13 @@ public class CardTest {
         Card cardAce = new Card(CardType.ace, CardMark.heart);
         Assert.assertEquals(0, cardAce.getCardTypePoint());
     }
+
+    @Test
+    public void isTenCard() {
+        Card cardTen = new Card(CardType.ten, CardMark.diamond);
+        Assert.assertTrue(cardTen.isTenCard());
+        Card card2 = new Card(CardType.two, CardMark.heart);
+        Assert.assertFalse(card2.isTenCard());
+    }
+
 }

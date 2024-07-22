@@ -7,6 +7,11 @@ public class Hand {
     private List<Card> cards;
     private int points = 0;
 
+    static final int MAX = 21;
+
+    boolean blackjack = false;
+    boolean bust = false;
+
     public Hand () {
         this.cards = new ArrayList<>();
     }
@@ -25,7 +30,7 @@ public class Hand {
 */
     public void addCard(Card card) {
         cards.add(card);
-        points += card.getCardTypePoint();
+//        points += card.getCardTypePoint();
     }
 /* 
     public void showCards() {
@@ -37,4 +42,46 @@ public class Hand {
     public int showPoints() {
         return points;
     }
+
+    public int sumPoints() {
+        int countAce = 0;
+        int countTenCard = 0;
+        for (int i = 0; i < cards.size(); i++) {
+            Card card = cards.get(i);
+            points += card.getCardTypePoint();
+            if (card.isAce()) {
+                countAce += 1;
+            }
+            if (card.isTenCard()) {
+                countTenCard += 1;
+            }
+        }
+
+        for (int i = 0; i < countAce; i++) {
+            if (points >= MAX) {
+                points += 1;
+                bust = true;
+                continue;
+            } else if ((points % 21 <= 20) && (points % 21 >= 11)) {
+                points += 1;
+            } else if ((points % 21 == 10) && (countTenCard == 1)){
+                points += 11;
+                blackjack = true;
+            } else {
+                // もう少しケース分岐の検討要
+                points += 11;
+            }
+        }
+
+        if (points > MAX) {
+            bust = true;
+        }
+    
+        return points;
+    }
+
+    public boolean isBust() {
+        return bust;
+    }
+
 }

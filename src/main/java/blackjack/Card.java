@@ -13,6 +13,13 @@ public class Card {
         return type.equals(CardType.ace);
     }
 
+    public boolean isTenCard() {
+        if (type.getPoint() == 10) {
+            return true;
+        }
+        return false;
+    }
+
     public int getCardTypePoint() {
         return type.getPoint();
     }

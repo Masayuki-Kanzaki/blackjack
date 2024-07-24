@@ -21,8 +21,7 @@ public class HandTest {
         hand3.addCard(CardFactory.createCard(CardType.two, CardMark.heart));
         Assert.assertEquals(13, hand3.sumPoints());
         hand3.addCard(CardFactory.createCard(CardType.eight, CardMark.heart));
-        // なぜ、24？？
-        Assert.assertEquals(24, hand3.sumPoints());
+        Assert.assertEquals(21, hand3.sumPoints());
     }
     @Test
     public void sum_Points2() {
@@ -31,8 +30,7 @@ public class HandTest {
         hand3.addCard(CardFactory.createCard(CardType.two, CardMark.heart));
         Assert.assertEquals(13, hand3.sumPoints());
         hand3.addCard(CardFactory.createCard(CardType.five, CardMark.heart));
-        // なぜ、24？？
-        Assert.assertEquals(21, hand3.sumPoints());
+        Assert.assertEquals(18, hand3.sumPoints());
     }
     @Test
     public void sum_Points3() {
@@ -40,7 +38,6 @@ public class HandTest {
         hand3.addCard(CardFactory.createCard(CardType.ace, CardMark.diamond));
         hand3.addCard(CardFactory.createCard(CardType.two, CardMark.heart));
         hand3.addCard(CardFactory.createCard(CardType.five, CardMark.heart));
-        // なぜ、18？？
         Assert.assertEquals(18, hand3.sumPoints());
     }
     @Test

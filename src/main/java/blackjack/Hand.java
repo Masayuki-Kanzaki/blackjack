@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Hand {
     private List<Card> cards;
-    private int points = 0;
 
     static final int MAX = 21;
 
@@ -40,10 +39,11 @@ public class Hand {
     }
 */
     public int showPoints() {
-        return points;
+        return sumPoints();
     }
 
     public int sumPoints() {
+        int points = 0;
         int countAce = 0;
         int countTenCard = 0;
         for (int i = 0; i < cards.size(); i++) {

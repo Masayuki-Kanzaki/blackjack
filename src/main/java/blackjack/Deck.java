@@ -1,6 +1,6 @@
 package src.main.java.blackjack;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Collections;
 import java.util.List;
 
@@ -8,10 +8,20 @@ public class Deck {
     private List<Card> deck;
 
     public Deck() {
-        this.deck = new ArrayList<>();
+        deck = new LinkedList<>();
+        CardType[] cardTypes = CardType.values();
+        CardMark[] cardMarks = CardMark.values();
+        
+        for (CardType type : cardTypes) {
+            for (CardMark mark : cardMarks) {
+                deck.add(new Card(type, mark));
+            }
+        }
+        shuffle();
     }
 
     public void addCard(Card card) {
+        // unit test用
         deck.add(card);
     }
 

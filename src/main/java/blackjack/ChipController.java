@@ -1,11 +1,11 @@
 package src.main.java.blackjack;
 
-public class TipController {
+public class ChipController {
     final int INITIAL_CREDIT = 100;
 	private int credit;
-	private int tip;
+	private int chip;
 
-	public TipController() {
+	public ChipController() {
 		setCredit(INITIAL_CREDIT); 
 	}
 
@@ -21,38 +21,38 @@ public class TipController {
 		return credit;	
 	}
 
-	private void setTip(int t) {
-		tip = t;	
+	private void setChip(int t) {
+		chip = t;	
 	}
 
-	public int getTip() {
-		return tip;	
+	public int getChip() {
+		return chip;	
 	}
 
-	public void bet(int tip) {
-		if (tip < 0) {
-			tip = 0;
+	public void bet(int chip) {
+		if (chip < 0) {
+			chip = 0;
 		}
-		setTip(tip);	
-		credit = credit - tip;
+		setChip(chip);	
+		credit = credit - chip;
 	}
 
 	public void confiscate() {
-		tip = 0;	
+		chip = 0;	
 	}
 
-	public void returnTip() {
-		credit = credit + tip;
-		tip = 0;	
+	public void returnChip() {
+		credit = credit + chip;
+		chip = 0;	
 	}
 
 	public void getDividend(double ratio) {
 		if (ratio < 0) {
 			ratio = 1;
 		}
-		credit = credit + (int)(tip * ratio);
+		credit = credit + (int)(chip * ratio);
 		// 計算結果が小数点以下の値が発生した場合の考慮が必要
-		returnTip();
+		returnChip();
 	}
 
 }

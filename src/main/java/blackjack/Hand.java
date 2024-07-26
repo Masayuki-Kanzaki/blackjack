@@ -97,4 +97,21 @@ public class Hand {
     public boolean isBlackjack() {
         return blackjack;
     }
+
+    public boolean isAceForEleven() {
+        if (isBust()) {return false;}
+        if (countAce() == 0) {return false;}
+        int pointsTotal = sumPoints();
+        int points = sumPointsWithoutAce();
+        int remaining = pointsTotal - points;
+        if (remaining / 11 > 0) {return true;}
+        return false;
+    }
+
+    public boolean isDealerHandSeventeenOrMore() {
+        int points = sumPoints();
+        if (points > 17) {return true;}
+        if (points == 17 && !isAceForEleven()) {return true;}
+        return false;
+    }
 }

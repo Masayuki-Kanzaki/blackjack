@@ -26,15 +26,20 @@ public class Game {
     }
 
     private void dealerTurn() {
-        // 条件を変更要
-        while (dealer.sumPoints() < 17) {
+        while (!dealer.isDealerHandSeventeenOrMore()) {
             dealer.addCard(deck.drawCard());
         }
         System.out.println("Dealer's hand: " + dealer);
     }
 
     private void determineWinner() {
-        // 勝敗の判定
+        if (player.sumPoints() > dealer.sumPoints()) {
+            System.out.println("Player wins.");
+        } else if (player.sumPoints() < dealer.sumPoints()) {
+            System.out.println("Dealer wins. Player loses.");
+        } else {
+            System.out.println("Player draws.");
+        } 
     }
 
     private void placeBet() {

@@ -45,12 +45,12 @@ public class Game {
     private void placeBet() {
         while (true) {
             // 表示しても内容は分からないかな
-            System.out.println("You have " + chipController.getChip() + " chips. How many chips would you like to bet?");
+            System.out.println("You have " + chipController.getCredit() + " credit. How many chips would you like to bet?");
             int chip = scanner.nextInt();
             scanner.nextLine();
             try {
                 chipController.bet(chip);
-                System.out.println("You have bet " + chip + "Remaining chips: " + chipController.getChip());
+                System.out.println("You have bet " + chip + ". Remaining credit: " + chipController.getCredit());
                 break;
             } catch (IllegalArgumentException e) {
                 System.out.println("Invalid bet. Not enough chips.");

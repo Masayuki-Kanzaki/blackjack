@@ -21,13 +21,21 @@ public class Game {
     private void dealInitialCards() {
         player.addCard(deck.drawCard());
         player.addCard(deck.drawCard());
+        player.sumPoints();
+        System.out.println("Player's hand: ");
+        player.showCards();
+
         dealer.addCard(deck.drawCard());
+        System.out.println("Dealer's  hand: ");
+        dealer.showCards();
         dealer.addCard(deck.drawCard());
+        dealer.sumPoints();
     }
 
     private void dealerTurn() {
         while (!dealer.isDealerHandSeventeenOrMore()) {
             dealer.addCard(deck.drawCard());
+            dealer.sumPoints();
         }
         System.out.println("Dealer's hand: ");
         dealer.showCards();
@@ -37,7 +45,6 @@ public class Game {
         double ratio;
         if (dealer.isBust()) {
             System.out.println("Player wins.");
-            chipController.returnChip();
             if (player.isBlackjack()) {
                 ratio = 1.5;
             } else {
@@ -49,7 +56,6 @@ public class Game {
             chipController.confiscate();
         } else if (player.sumPoints() > dealer.sumPoints()) {
             System.out.println("Player wins.");
-            chipController.returnChip();
             if (player.isBlackjack()) {
                 ratio = 1.5;
             } else {
@@ -81,11 +87,6 @@ public class Game {
     }
 
     public void play() {
-        System.out.println("Player's hand: ");
-        player.showCards();
-        System.out.println("Dealer's  hand: ");
-        dealer.showCards();
-
         placeBet();
 
         while (true) {
@@ -94,6 +95,7 @@ public class Game {
 
             if (action.equalsIgnoreCase("hit")) {
                 player.addCard(deck.drawCard());
+                player.sumPoints();
                 System.out.println("Player's hand: ");
                 player.showCards();
                 if (player.isBust()) {

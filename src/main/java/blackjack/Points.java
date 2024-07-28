@@ -1,6 +1,7 @@
 package src.main.java.blackjack;
 
 public class Points {
+    // point classがあった方がいいと思ったが、未使用
     static final int MIN = 1;
     static final int MAX = 21;
 

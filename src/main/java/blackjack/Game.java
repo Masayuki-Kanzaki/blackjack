@@ -34,14 +34,34 @@ public class Game {
     }
 
     private void determineWinner() {
+        double ratio;
         if (dealer.isBust()) {
             System.out.println("Player wins.");
+            chipController.returnChip();
+            if (player.isBlackjack()) {
+                ratio = 1.5;
+            } else {
+                ratio = 1.0;
+            }
+            chipController.getDividend(ratio);
+        } else if (player.isBust()) {
+            System.out.println("Player loses.");
+            chipController.confiscate();
         } else if (player.sumPoints() > dealer.sumPoints()) {
             System.out.println("Player wins.");
+            chipController.returnChip();
+            if (player.isBlackjack()) {
+                ratio = 1.5;
+            } else {
+                ratio = 1.0;
+            }
+            chipController.getDividend(ratio);
         } else if (player.sumPoints() < dealer.sumPoints()) {
             System.out.println("Dealer wins. Player loses.");
+            chipController.confiscate();
         } else {
             System.out.println("Player draws.");
+            chipController.returnChip();
         } 
     }
 
@@ -78,6 +98,7 @@ public class Game {
                 player.showCards();
                 if (player.isBust()) {
                     System.out.println("Player busts! Dealer wins");
+                    chipController.confiscate();
                     break;
                 }
             } else if (action.equalsIgnoreCase("stand")) {

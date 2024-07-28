@@ -23,4 +23,17 @@ public class Card {
     public int getCardTypePoint() {
         return type.getPoint();
     }
+
+    public CardType getCardType() {
+        return type;
+    }
+
+    public CardMark getCardMark() {
+        return mark;
+    }
+
+    @Override
+    public String toString() {
+        return "Card: " + type + " of " + mark;
+    }
 }

@@ -24,13 +24,14 @@ public class Hand {
     public void addCard(Card card) {
         cards.add(card);
     }
-/* 
+ 
     public void showCards() {
         for (int i = 0; i < cards.size(); i++) {
-            //
+            Card card = cards.get(i);
+            System.out.println(card);
         }
     }
-*/
+
     public int showPoints() {
         return sumPoints();
     }

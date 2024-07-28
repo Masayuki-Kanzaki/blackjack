@@ -1,6 +1,13 @@
 package src.test.java.blackjack;
-
+/*
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+*/
 import org.junit.*;
+/*
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+*/
 import src.main.java.blackjack.*;
 
 public class HandTest {
@@ -175,4 +182,32 @@ public class HandTest {
         Assert.assertEquals(22, hand6.sumPoints());
         Assert.assertTrue(hand6.isBust());
     }
+/*
+    // printlnの複数行テストを試したが、うまくテストできないため、コメントアウト
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private PrintStream originalOut = System.out;
+
+    @BeforeEach
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+    }
+    @AfterEach
+    public void restoreStreams() {
+        System.setOut(originalOut);
+    }
+    @Test
+    public void MultiLinePrintln() { 
+
+        System.out.print("Card: two of diasmond");
+        String actualOutput = outContent.toString().trim();
+        String expectedOutput = "Card: two of diasmond";
+        Assert.assertEquals(expectedOutput, actualOutput);
+
+        System.out.print("redirection test");
+        String redirectionTestOutput = outContent.toString().trim();
+//        Assert.assertEquals("redirection test", redirectionTestOutput, "redirection is not working");
+        Assert.assertEquals("redirection test", redirectionTestOutput);
+
+    }
+*/
 }

@@ -29,7 +29,8 @@ public class Game {
         while (!dealer.isDealerHandSeventeenOrMore()) {
             dealer.addCard(deck.drawCard());
         }
-        System.out.println("Dealer's hand: " + dealer);
+        System.out.println("Dealer's hand: ");
+        dealer.showCards();
     }
 
     private void determineWinner() {
@@ -44,7 +45,6 @@ public class Game {
 
     private void placeBet() {
         while (true) {
-            // 表示しても内容は分からないかな
             System.out.println("You have " + chipController.getCredit() + " credit. How many chips would you like to bet?");
             int chip = scanner.nextInt();
             scanner.nextLine();
@@ -59,8 +59,10 @@ public class Game {
     }
 
     public void play() {
-        System.out.println("Player's " + player);
-        System.out.println("Dealer's " + dealer);
+        System.out.println("Player's hand: ");
+        player.showCards();
+        System.out.println("Dealer's  hand: ");
+        dealer.showCards();
 
         placeBet();
 
@@ -70,8 +72,8 @@ public class Game {
 
             if (action.equalsIgnoreCase("hit")) {
                 player.addCard(deck.drawCard());
-                // 表示しても内容は分からないかな
-                System.out.println("Player's " + player);
+                System.out.println("Player's hand: ");
+                player.showCards();
                 if (player.isBust()) {
                     System.out.println("Player busts! Dealer wins");
                     break;

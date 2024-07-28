@@ -34,7 +34,9 @@ public class Game {
     }
 
     private void determineWinner() {
-        if (player.sumPoints() > dealer.sumPoints()) {
+        if (dealer.isBust()) {
+            System.out.println("Player wins.");
+        } else if (player.sumPoints() > dealer.sumPoints()) {
             System.out.println("Player wins.");
         } else if (player.sumPoints() < dealer.sumPoints()) {
             System.out.println("Dealer wins. Player loses.");

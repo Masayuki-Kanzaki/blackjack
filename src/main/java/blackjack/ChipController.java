@@ -29,12 +29,16 @@ public class ChipController {
 		return chip;	
 	}
 
-	public void bet(int chip) {
+	public int bet(int chip) {
 		if (chip < 0) {
 			chip = 0;
 		}
+		if (credit - chip < 0) {
+			chip = credit;
+		}
 		setChip(chip);	
 		credit = credit - chip;
+		return chip;
 	}
 
 	public void confiscate() {
@@ -51,7 +55,7 @@ public class ChipController {
 			ratio = 1;
 		}
 		credit = credit + (int)(chip * ratio);
-		// 計算結果が小数点以下の値が発生した場合の考慮が必要
+		// 計算結果が小数点以下の値が発生した場合の考慮が必要か？今は切り捨て
 		returnChip();
 	}
 

@@ -77,8 +77,8 @@ public class Game {
             int chip = scanner.nextInt();
             scanner.nextLine();
             try {
-                chipController.bet(chip);
-                System.out.println("You have bet " + chip + ". Remaining credit: " + chipController.getCredit());
+                int betChip = chipController.bet(chip);
+                System.out.println("You have bet " + betChip + ". Remaining credit: " + chipController.getCredit());
                 break;
             } catch (IllegalArgumentException e) {
                 System.out.println("Invalid bet. Not enough chips.");

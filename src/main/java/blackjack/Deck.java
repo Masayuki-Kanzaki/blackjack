@@ -9,12 +9,12 @@ public class Deck {
 
     public Deck() {
         deck = new LinkedList<>();
-        CardType[] cardTypes = CardType.values();
-        CardMark[] cardMarks = CardMark.values();
+        CardRank[] cardRanks = CardRank.values();
+        CardSuit[] cardSuits = CardSuit.values();
         
-        for (CardType type : cardTypes) {
-            for (CardMark mark : cardMarks) {
-                deck.add(new Card(type, mark));
+        for (CardRank rank : cardRanks) {
+            for (CardSuit suit : cardSuits) {
+                deck.add(new Card(rank, suit));
             }
         }
         shuffle();

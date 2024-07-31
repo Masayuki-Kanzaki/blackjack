@@ -1,6 +1,7 @@
 package src.main.java.blackjack;
 
-public enum CardType {
+public enum CardRank {
+    // Aceのポイントは２つとりえるため、ここではポイントが決まらない
     ace(),
     two(2),
     three(3),
@@ -17,15 +18,14 @@ public enum CardType {
 
     private int point;
 
-    private CardType(int point) {
+    private CardRank(int point) {
 	    this.point = point;
     }
 
-    // Aceについて、何か必要？
-    private CardType() {
+    // Ace用
+    private CardRank() {
     }
 
-    // Aceのポイントについて考慮要
     public int getPoint() {
         return point;
     }

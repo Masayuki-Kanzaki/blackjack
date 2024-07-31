@@ -1,39 +1,39 @@
 package src.main.java.blackjack;
 
 public class Card {
-    CardType type;
-    CardMark mark;
+    CardRank rank;
+    CardSuit suit;
 
-    public Card(CardType type, CardMark mark) {
-        this.type = type;
-        this.mark = mark;
+    public Card(CardRank rank, CardSuit suit) {
+        this.rank = rank;
+        this.suit = suit;
     }
 
     public boolean isAce() {
-        return type.equals(CardType.ace);
+        return rank.equals(CardRank.ace);
     }
 
     public boolean isTenCard() {
-        if (type.getPoint() == 10) {
+        if (rank.getPoint() == 10) {
             return true;
         }
         return false;
     }
 
-    public int getCardTypePoint() {
-        return type.getPoint();
+    public int getCardRankPoint() {
+        return rank.getPoint();
     }
 
-    public CardType getCardType() {
-        return type;
+    public CardRank getCardRank() {
+        return rank;
     }
 
-    public CardMark getCardMark() {
-        return mark;
+    public CardSuit getCardSuit() {
+        return suit;
     }
 
     @Override
     public String toString() {
-        return "Card: " + type + " of " + mark;
+        return "Card: " + rank + " of " + suit;
     }
 }

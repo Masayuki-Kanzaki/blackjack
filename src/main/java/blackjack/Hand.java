@@ -62,7 +62,7 @@ public class Hand {
         int points = 0;
         for (int i = 0; i < cards.size(); i++) {
             Card card = cards.get(i);
-            points += card.getCardTypePoint();
+            points += card.getCardRankPoint();
         }
         return points;
     }
